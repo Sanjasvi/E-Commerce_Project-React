@@ -1,9 +1,6 @@
-import React, {
-    useEffect,
-    useState
-} from "react";
-
+import React, {useEffect,useState} from "react";
 import axios from "axios";
+import API_URL from "../config";
 
 function ManageProducts() {
 
@@ -36,7 +33,7 @@ function ManageProducts() {
             const response =
                 await axios.get(
 
-                    "http://localhost:8080/products",
+                    `${API_URL}/products`,
 
                     {
                         headers: {
@@ -75,7 +72,7 @@ function ManageProducts() {
 
             await axios.post(
 
-                "http://localhost:8080/products",
+                `${API_URL}/products`,
 
                 product,
                 {
@@ -104,7 +101,7 @@ function ManageProducts() {
 
             await axios.put(
 
-                `http://localhost:8080/products/${editingId}`,
+                `${API_URL}/products/${editingId}`,
 
                 product,
 
@@ -147,7 +144,7 @@ function ManageProducts() {
 
             await axios.delete(
 
-                `http://localhost:8080/products/${id}`,
+                `${API_URL}/products/${id}`,
                 {
                     headers: {
                         Authorization:

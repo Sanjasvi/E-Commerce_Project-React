@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../config";
 
 function ManageOrders() {
     const [orders, setOrders] = useState([]);
@@ -21,7 +22,7 @@ function ManageOrders() {
             const response =
                 await axios.get(
 
-                    "http://localhost:8080/orders/all",
+                    `${API_URL}/orders/all`,
 
                     {
                         headers: {
@@ -49,7 +50,7 @@ function ManageOrders() {
 
             await axios.put(
 
-                `http://localhost:8080/orders/status/${id}?status=${status}`,
+                `${API_URL}/orders/status/${id}?status=${status}`,
 
                 {},
 

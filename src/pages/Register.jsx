@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import API_URL from "../config";
 
 function Register() {
 
@@ -31,8 +32,8 @@ function Register() {
         async () => {
 
             await axios.post(
-
-                "http://localhost:8080/users/register",
+                `${API_URL}/users/register`,
+                //"http://localhost:8080/users/register",
 
                 user
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_URL from "../config";
 
 function Cart() {
 
@@ -19,7 +20,8 @@ function Cart() {
         const userId = localStorage.getItem("userId");
 
         const response = await axios.get(
-            `http://localhost:8080/cart/${userId}`,
+            `${API_URL}/cart/${userId}`,
+           // `http://localhost:8080/cart/${userId}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -51,7 +53,7 @@ function Cart() {
         };
 
         await axios.post(
-            'http://localhost:8080/orders/place',
+            `${API_URL}/orders/place`,
             orderData,
             {
                 headers: {
@@ -62,7 +64,7 @@ function Cart() {
         );
 
         await axios.delete(
-            `http://localhost:8080/cart/clear/${userId}`,
+            `${API_URL}/cart/clear/${userId}`,
             {
                 headers: {
                     Authorization:
@@ -94,7 +96,7 @@ function Cart() {
         const token = localStorage.getItem("token");
 
         await axios.delete(
-            `http://localhost:8080/cart/remove/${id}`,
+            `${API_URL}/cart/remove/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -129,7 +131,7 @@ function Cart() {
 
         await axios.put(
 
-            `http://localhost:8080/cart/update/${id}/${quantity}`,
+            `${API_URL}/cart/update/${id}/${quantity}`,
 
             {},
 
@@ -162,7 +164,7 @@ function Cart() {
             const response =
                 await axios.post(
 
-                    "http://localhost:8080/payment/create-order",
+                    `${API_URL}/payment/create-order`,
 
                     null,
 

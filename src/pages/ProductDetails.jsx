@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import API_URL from "../config";
 
 function ProductDetails() {
 
@@ -19,7 +20,8 @@ function ProductDetails() {
     const fetchProduct = async () => {
 
         const response = await axios.get(
-            `http://localhost:8080/products/${id}`
+            `${API_URL}/products/${id}`,
+            //`http://localhost:8080/products/${id}`
         );
 
         setProduct(response.data);
@@ -59,7 +61,7 @@ function ProductDetails() {
         };
 
         await axios.post(
-            'http://localhost:8080/cart/add',
+            `${API_URL}/cart/add`,
             cartData,
             {
                 headers: {

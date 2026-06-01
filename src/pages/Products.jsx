@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_URL from "../config";
 
 function Products() {
 
@@ -19,7 +20,8 @@ function Products() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-            'http://localhost:8080/products',
+            `${API_URL}/products`,
+            // 'http://localhost:8080/products',
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -59,7 +61,8 @@ function Products() {
         // const token = localStorage.getItem("token");
 
         await axios.post(
-            'http://localhost:8080/cart/add',
+            `${API_URL}/cart/add`,
+           // 'http://localhost:8080/cart/add',
             cartData,
             {
                 headers: {
